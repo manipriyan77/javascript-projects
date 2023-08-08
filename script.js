@@ -1,27 +1,30 @@
 "use strict";
 
-const modal = document.querySelector(".modal");
-const overlay = document.querySelector(".overlay");
-const closeModal = document.querySelector(".close-modal");
-const openModalBtns = document.querySelectorAll(".show-modal");
+// selecting the elements
+const score0Element = document.querySelector("#score--0");
+const score1Element = document.getElementById("score--1");
+const current0Element = document.getElementById("current--0");
+const current1Element = document.getElementById("current--1");
+const diceElement = document.querySelector(".dice");
+const rollDiceBtnElement = document.querySelector(".btn--roll");
+const newBtnElement = document.querySelector(".btn--new");
+const holeBtnElement = document.querySelector(".btn--hold");
 
-function addHiddenClass() {
-  modal.classList.add("hidden");
-  overlay.classList.add("hidden");
-}
+// Initial condtion
+score0Element.textContent = 0;
+score1Element.textContent = 0;
+diceElement.classList.add("hidden");
 
-for (let i = 0; i < openModalBtns.length; i++) {
-  openModalBtns[i].addEventListener("click", function (event) {
-    modal.classList.remove("hidden");
-    overlay.classList.remove("hidden");
-  });
-}
+let currentScore = 0;
 
-closeModal.addEventListener("click", addHiddenClass);
-overlay.addEventListener("click", addHiddenClass);
-
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape" && !modal.classList.contains("hidden")) {
-    addHiddenClass();
+// rolling functionality
+rollDiceBtnElement.addEventListener("click", function () {
+  const diceNumber = Math.trunc(Math.random() * 6) + 1;
+  diceElement.classList.remove("hidden");
+  diceElement.src = `assets/dice-${diceNumber}.png`;
+  if (diceNumber !== 1) {
+    currentScore += diceNumber;
+    current0Element.textContent = currentScore;
+  } else {
   }
 });
