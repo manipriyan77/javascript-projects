@@ -10,6 +10,7 @@
 
 function arrayReduce(nums, init, fn) {
   if (nums.length === 0) {
+    console.log(this);
     return init;
   }
 
