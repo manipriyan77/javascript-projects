@@ -56,3 +56,41 @@ const transFormer = function (str, fn) {
 
 transFormer("Javascript is the best ", upperFirstWord);
 transFormer("Javascript is the best ", oneWord);
+
+const hiFive = function () {
+  console.log("👋");
+};
+
+document.body.addEventListener("click", hiFive);
+
+["Mani", "Hari"].forEach(hiFive);
+
+// Functions returing functions
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greetMorning = greet("Good morning");
+greetMorning("Manipriyan");
+greetMorning("Hari");
+
+greet("Hey")("Manipriyan");
+
+const greetArrow = (greeting) => {
+  return (name) => {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+greetArrow("Hello")("Mani");
+
+// IIFE
+
+(function () {
+  console.log("This will never run again");
+  const isPrivate = 23;
+})();
+
+(() => console.log("This will never run again"))();
