@@ -4,7 +4,37 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Javascript-Projects</title>
+    <title>Weather app</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="card">
+      <div class="search">
+        <input type="text" placeholder="Enter the city name" spellcheck="false" id="city-search" />
+        <button id="search-button"><img src="images/search.png" alt="" /></button>
+      </div>
+      <section class="weather">
+        <img src="" alt="rain" class="weather-icon" id="weather-image" />
+        <h1 class="temp"></h1>
+        <h2 class="city-name" id="city-name"></h2>
+        <div class="details">
+          <div class="col">
+            <img src="images/humidity.png" alt="" />
+            <div>
+              <p class="humidity"></p>
+              <p>Humidity</p>
+            </div>
+          </div>
+          <div class="col">
+            <img src="images/wind.png" alt="" />
+            <div>
+              <p class="wind"></p>
+              <p>Wind speed</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
